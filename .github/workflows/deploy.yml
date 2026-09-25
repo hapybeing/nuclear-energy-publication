@@ -24,6 +24,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Graphic Dependencies
+        run: pip install Pillow numpy
+
+      - name: Generate Solarpunk & Scientific Editorial Visuals
+        run: python3 scripts/generate_art.py
+
+      - name: Verify Application Integrity
+        run: python3 scripts/test_site.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
