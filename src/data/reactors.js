@@ -1,0 +1,80 @@
+export const REACTOR_FAMILIES = [
+  {
+    id: "pwr",
+    name: "Pressurized Water Reactor (PWR)",
+    generation: "Gen III / III+",
+    coolant: "Light Water (H₂O) at 155 bar",
+    moderator: "Light Water (H₂O)",
+    neutronSpectrum: "Thermal",
+    typicalPower: "1,000 – 1,600 MWe",
+    thermalEfficiency: "33 – 36%",
+    flagshipModels: ["Westinghouse AP1000", "Framatome EPR", "KEPCO APR-1400", "Rosatom VVER-1200"],
+    passiveFeatures: "AP1000 features gravity-driven passive containment cooling (PCCS) and core make-up tanks operating 72+ hours without AC power.",
+    keyAdvantage: "Extensively proven operating record; robust closed primary-secondary isolation preventing steam circuit contamination."
+  },
+  {
+    id: "bwr",
+    name: "Boiling Water Reactor (BWR)",
+    generation: "Gen III / III+",
+    coolant: "Light Water (H₂O) at 70–75 bar (boiling)",
+    moderator: "Light Water (H₂O)",
+    neutronSpectrum: "Thermal",
+    typicalPower: "1,100 – 1,500 MWe",
+    thermalEfficiency: "33 – 35%",
+    flagshipModels: ["GE Hitachi ESBWR", "ABWR"],
+    passiveFeatures: "ESBWR utilizes natural circulation with zero primary reactor recirculation pumps and gravity-driven cooling systems (GDCS).",
+    keyAdvantage: "Simpler single-loop thermodynamic design eliminating dedicated steam generators and pressurizer vessels."
+  },
+  {
+    id: "smr",
+    name: "Light Water SMRs",
+    generation: "Gen III+ / Modular",
+    coolant: "Light Water (Integral or Compact loop)",
+    moderator: "Light Water (H₂O)",
+    neutronSpectrum: "Thermal",
+    typicalPower: "50 – 300 MWe per module",
+    thermalEfficiency: "31 – 35%",
+    flagshipModels: ["NuScale VOYGR", "GE Hitachi BWRX-300", "Rolls-Royce SMR", "Holtec SMR-160"],
+    passiveFeatures: "Fully walk-away safe with submerged containment vessels and indefinite passive heat dissipation to ultimate heat sinks.",
+    keyAdvantage: "Factory fabrication, modular scalability, brownfield coal-plant repowering, and dramatically lowered upfront capital commitment."
+  },
+  {
+    id: "htgr",
+    name: "High-Temperature Gas-Cooled Reactor (HTGR)",
+    generation: "Gen IV",
+    coolant: "Helium Gas (50–70 bar, 750–950°C)",
+    moderator: "Graphite",
+    neutronSpectrum: "Thermal",
+    typicalPower: "100 – 300 MWe (Thermal: 250–600 MWth)",
+    thermalEfficiency: "40 – 48%",
+    flagshipModels: ["HTR-PM (Shidao Bay, China)", "X-energy Xe-100"],
+    passiveFeatures: "Meltdown-proof TRISO ceramic fuel retain fission products up to 1,600°C+, exceeding any physical loss-of-coolant temperature.",
+    keyAdvantage: "High-temperature process heat for zero-carbon hydrogen synthesis, petrochemicals, district heating, and high thermodynamic efficiency."
+  },
+  {
+    id: "sfr",
+    name: "Sodium-Cooled Fast Reactor (SFR)",
+    generation: "Gen IV",
+    coolant: "Liquid Sodium (atmospheric pressure, ~550°C)",
+    moderator: "None (Fast neutrons)",
+    neutronSpectrum: "Fast",
+    typicalPower: "300 – 1,200 MWe",
+    thermalEfficiency: "39 – 42%",
+    flagshipModels: ["TerraPower Natrium", "BN-800 / BN-1200", "PRISM"],
+    passiveFeatures: "Atmospheric operating pressure eliminates high-pressure vessel rupture risks; passive decay heat removal via natural sodium drafts.",
+    keyAdvantage: "Breeds fissile fuel from ²³⁸U, extracts 60x more energy from uranium ore, and transmutes long-lived minor actinides into shorter-lived isotopes."
+  },
+  {
+    id: "msr",
+    name: "Molten Salt Reactor (MSR)",
+    generation: "Gen IV",
+    coolant: "Liquid Fluoride or Chloride Salts (~600–700°C)",
+    moderator: "Graphite or Fast Spectrum",
+    neutronSpectrum: "Thermal or Fast",
+    typicalPower: "100 – 500 MWe",
+    thermalEfficiency: "44 – 48%",
+    flagshipModels: ["Terrestrial Energy IMSR", "Kairos Power Hermes (FHR)", "Moltex SSR"],
+    passiveFeatures: "Freeze plug melts on power loss, passively draining core fuel salt into subcritical geometry passively cooled tanks under gravity.",
+    keyAdvantage: "Near-ambient operating pressures, non-volatile chemical forms for fission products, and high thermal efficiency."
+  }
+];
