@@ -1,0 +1,21 @@
+{
+  "name": "nuclear-energy-editorial",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Premium SolarPunk & Scientific Editorial Educational Platform on Nuclear Energy",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "serve": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "nuclear-energy",
+    "solarpunk",
+    "science-editorial",
+    "clean-energy",
+    "physics",
+    "thermodynamics",
+    "decarbonization"
+  ],
+  "author": "Gaurang Kumar",
+  "license": "MIT"
+}
