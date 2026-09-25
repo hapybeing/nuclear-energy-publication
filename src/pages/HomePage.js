@@ -142,24 +142,24 @@ export function renderHomePage() {
             <!-- 4 Numbered Steps -->
             <div class="process-steps-grid">
               <div class="step-card">
-                <div class="step-number">1. Nuclear Fission</div>
-                <h5>Heat Release</h5>
-                <p>Atoms of U-235 are split inside the core to release intense thermal energy.</p>
+                <div class="step-number">1. Fission</div>
+                <h5>Atoms Split</h5>
+                <p>Atoms of U-235 split inside the core to release thermal energy.</p>
               </div>
               <div class="step-card">
-                <div class="step-number">2. Steam Generation</div>
-                <h5>Thermal Transfer</h5>
-                <p>High-pressure hot water heats secondary water in a separate circuit into steam.</p>
+                <div class="step-number">2. Steam</div>
+                <h5>Water to Steam</h5>
+                <p>Circulating water turns into high-pressure dry steam.</p>
               </div>
               <div class="step-card">
-                <div class="step-number">3. Turbine Rotation</div>
-                <h5>Kinetic Power</h5>
-                <p>High-pressure steam expands across turbine blades at 1,800 RPM.</p>
+                <div class="step-number">3. Turbine</div>
+                <h5>Kinetic Spin</h5>
+                <p>Steam spins precision turbine blades at 1,800 RPM.</p>
               </div>
               <div class="step-card">
-                <div class="step-number">4. Clean Electricity</div>
-                <h5>Grid Delivery</h5>
-                <p>Generators send clean electric power to homes, hospitals, and heavy industry.</p>
+                <div class="step-number">4. Grid</div>
+                <h5>Clean Power</h5>
+                <p>Generators deliver electricity to homes, hospitals, and cities.</p>
               </div>
             </div>
           </div>

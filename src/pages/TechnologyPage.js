@@ -1,4 +1,4 @@
-// Technology Page: Reactor Families, SMRs & Generation IV Systems
+// Technology Page: Reactor Generations, SMRs, Gen IV, and Fusion
 
 import { REACTOR_FAMILIES } from '../data/reactors.js';
 
@@ -7,104 +7,144 @@ export function renderTechnologyPage() {
     <div class="page-container" style="padding-top: 48px; padding-bottom: 96px;">
       <!-- Hero -->
       <section class="container" style="margin-bottom: 56px;">
-        <span class="eyebrow eyebrow-forest">Advanced Nuclear Architecture</span>
+        <span class="eyebrow eyebrow-forest">Advanced Nuclear Engineering</span>
         <h1 class="heading-display">
           Reactor Technologies:<br/>
-          From Gen III+ to Advanced SMRs
+          From Gen III+ to Fast Neutrons & Fusion
         </h1>
         <p class="lead-text">
-          Nuclear reactor engineering spans diverse thermodynamic approaches, neutron energy spectra, and innovative coolant media—from high-pressure water to liquid sodium, helium gas, and molten fluorides.
+          Explore the engineering evolution of nuclear fission and fusion systems: coolant chemistries, neutron energy spectra, TRISO passive fuels, modular manufacturing, and magnetic plasma confinement.
         </p>
       </section>
 
-      <!-- Reactor Families Technical Grid -->
-      <section class="container" style="margin-bottom: 72px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px;">
+      <!-- Generation Taxonomy Timeline -->
+      <section class="container" style="margin-bottom: 64px;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: 32px;">
+          <span class="eyebrow">TECHNOLOGY EVOLUTION</span>
+          <h2 class="heading-section" style="font-size: 1.8rem; margin-bottom: 24px;">The Generations of Nuclear Power</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+            <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-sm); border-top: 3px solid var(--charcoal-400);">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--charcoal-500);">1950 – 1970</span>
+              <h5 style="font-size: 1.05rem; font-weight: 700; margin: 6px 0;">Generation I</h5>
+              <p style="font-size: 0.84rem; color: var(--charcoal-700);">Early prototype civilian power reactors: Shippingport, Magnox, Dresden 1. Proved commercial feasibility of electricity generation from nuclear fission.</p>
+            </div>
+            <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-sm); border-top: 3px solid var(--forest-500);">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--forest-600);">1970 – 1995</span>
+              <h5 style="font-size: 1.05rem; font-weight: 700; margin: 6px 0;">Generation II</h5>
+              <p style="font-size: 0.84rem; color: var(--charcoal-700);">Large commercial workhorses built during global expansion: Westinghouse PWRs, GE BWR/4-6, French CP0/CP1 fleet, CANDU-6. High reliability, active safety redundancies.</p>
+            </div>
+            <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-sm); border-top: 3px solid var(--forest-700);">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--forest-700);">1995 – PRESENT</span>
+              <h5 style="font-size: 1.05rem; font-weight: 700; margin: 6px 0;">Generation III / III+</h5>
+              <p style="font-size: 0.84rem; color: var(--charcoal-700);">Evolutionary advances with passive safety (AP1000, VVER-1200, EPR, APR-1400, ESBWR). 60-year design life, core catchers, aircraft impact resistance, simplified piping.</p>
+            </div>
+            <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-sm); border-top: 3px solid var(--brass-600);">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--brass-700);">2020s & BEYOND</span>
+              <h5 style="font-size: 1.05rem; font-weight: 700; margin: 6px 0;">Generation IV & SMRs</h5>
+              <p style="font-size: 0.84rem; color: var(--charcoal-700);">High temperatures (&gt;750°C), non-water coolants (helium, liquid sodium, molten fluoride salts), closed actinide fuel cycles, factory fabrication, industrial process heat.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed Reactor Family Directory -->
+      <section class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 32px;">
+          <div style="max-width: 680px;">
+            <span class="eyebrow eyebrow-forest">Comprehensive Technical Directory</span>
+            <h2 class="heading-section">The 7 Primary Reactor Families</h2>
+            <p class="body-editorial">
+              Detailed engineering specifications, thermodynamic operating points, fuel forms, and current global deployment status across commercial and advanced nuclear architectures.
+            </p>
+          </div>
+          <!-- Interactive Technology Filter Tabs -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="reactor-filter-btns">
+            <button class="btn btn-sm btn-primary filter-tech-btn" data-filter="all">All Systems</button>
+            <button class="btn btn-sm btn-secondary filter-tech-btn" data-filter="commercial">Commercial (Gen III+)</button>
+            <button class="btn btn-sm btn-secondary filter-tech-btn" data-filter="smr">SMRs & Micro</button>
+            <button class="btn btn-sm btn-secondary filter-tech-btn" data-filter="gen4">Gen IV (Fast / High-Heat)</button>
+            <button class="btn btn-sm btn-secondary filter-tech-btn" data-filter="fusion">Fusion</button>
+          </div>
+        </div>
+
+        <div id="reactor-cards-list" style="display: flex; flex-direction: column; gap: 32px;">
           ${REACTOR_FAMILIES.map(r => `
-            <div class="feature-card-editorial" style="padding: 28px; background: var(--bg-surface); border: 1px solid var(--border-subtle); display: flex; flex-direction: column;">
-              <div style="margin-bottom: 16px;">
-                <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--brass-700); text-transform: uppercase;">
-                  ${r.generation} • ${r.neutronSpectrum} Spectrum
+            <div class="feature-card-editorial reactor-family-card" data-cat="${r.id === 'pwr' || r.id === 'bwr' || r.id === 'phwr' ? 'commercial' : (r.id === 'smr' ? 'smr' : (r.id === 'fusion' ? 'fusion' : 'gen4'))}" style="padding: 32px; border-left: 4px solid ${r.id === 'fusion' ? 'var(--brass-600)' : 'var(--forest-600)'};">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 8px;">
+                <div>
+                  <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--charcoal-900); font-weight: 600;">${r.name}</h3>
+                  <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--brass-700); font-weight: 600;">${r.generation}</span>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--bg-subtle); color: var(--charcoal-800); padding: 4px 10px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
+                  ${r.status}
                 </span>
-                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--forest-900); margin-top: 4px;">
-                  ${r.name}
-                </h3>
               </div>
 
-              <!-- Technical Specifications Table -->
-              <div style="background: var(--bg-subtle); border-radius: var(--radius-sm); padding: 14px; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 18px; display: flex; flex-direction: column; gap: 8px;">
-                <div style="display: flex; justify-content: space-between;">
-                  <span style="color: var(--charcoal-500);">Coolant:</span>
-                  <strong style="color: var(--charcoal-900);">${r.coolant}</strong>
+              <p class="body-editorial" style="margin-bottom: 20px; font-size: 0.94rem;">${r.description}</p>
+
+              <!-- Technical Specifications Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; background: var(--bg-canvas); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 18px;">
+                <div>
+                  <span style="color: var(--charcoal-500); display: block; margin-bottom: 4px;">COOLANT MEDIUM</span>
+                  <strong style="color: var(--forest-900);">${r.coolant}</strong>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span style="color: var(--charcoal-500);">Moderator:</span>
-                  <strong style="color: var(--charcoal-900);">${r.moderator}</strong>
+                <div>
+                  <span style="color: var(--charcoal-500); display: block; margin-bottom: 4px;">MODERATOR</span>
+                  <strong style="color: var(--forest-900);">${r.moderator}</strong>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span style="color: var(--charcoal-500);">Thermal Efficiency:</span>
-                  <strong style="color: var(--forest-700);">${r.thermalEfficiency}</strong>
+                <div>
+                  <span style="color: var(--charcoal-500); display: block; margin-bottom: 4px;">NEUTRON SPECTRUM</span>
+                  <strong style="color: var(--forest-900);">${r.neutronSpectrum}</strong>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span style="color: var(--charcoal-500);">Typical Output:</span>
-                  <strong style="color: var(--charcoal-900);">${r.typicalPower}</strong>
+                <div>
+                  <span style="color: var(--charcoal-500); display: block; margin-bottom: 4px;">OUTLET TEMPERATURE</span>
+                  <strong style="color: var(--forest-900);">${r.outletTemp}</strong>
                 </div>
               </div>
 
-              <div style="font-size: 0.86rem; color: var(--charcoal-700); margin-bottom: 16px; flex-grow: 1;">
-                <p style="margin-bottom: 8px;"><strong>Passive Safety Design:</strong> ${r.passiveFeatures}</p>
-                <p><strong>Strategic Value:</strong> ${r.keyAdvantage}</p>
-              </div>
-
-              <div style="border-top: 1px solid var(--border-subtle); padding-top: 12px; font-size: 0.78rem; color: var(--charcoal-500);">
-                <strong>Benchmark Designs:</strong> ${r.flagshipModels.join(', ')}
+              <!-- Advantages & Challenges -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; font-size: 0.88rem; line-height: 1.55;">
+                <div style="border-left: 2px solid var(--forest-500); padding-left: 14px;">
+                  <strong style="color: var(--forest-800); display: block; margin-bottom: 4px;">Technical Advantages:</strong>
+                  <span style="color: var(--charcoal-700);">${r.advantages}</span>
+                </div>
+                <div style="border-left: 2px solid var(--brass-700); padding-left: 14px;">
+                  <strong style="color: var(--brass-800); display: block; margin-bottom: 4px;">Current Challenges:</strong>
+                  <span style="color: var(--charcoal-700);">${r.challenges}</span>
+                </div>
               </div>
             </div>
           `).join('')}
         </div>
       </section>
-
-      <!-- Advanced SMR Paradigm Shift -->
-      <section class="container">
-        <div style="background: var(--bg-surface); border: 1px solid var(--border-brass); border-radius: var(--radius-md); padding: 40px; box-shadow: var(--shadow-subtle);">
-          <span class="eyebrow">THE MODULAR REVOLUTION</span>
-          <h2 class="heading-section">Why Small Modular Reactors (SMRs) Matter</h2>
-          <p class="body-editorial" style="margin-bottom: 24px;">
-            Historically, nuclear reactors pursued economies of unit scale (1,000–1,600 MWe per unit) to dilute fixed regulatory overhead, creating gargantuan multi-billion dollar capital projects. SMRs invert this model by pursuing <strong>economies of factory manufacturing series</strong>.
-          </p>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-            <div>
-              <h5 style="font-size: 1.05rem; font-weight: 700; color: var(--forest-900); margin-bottom: 6px;">
-                Factory Standardization & Quality
-              </h5>
-              <p style="font-size: 0.86rem; color: var(--charcoal-600); line-height: 1.6;">
-                Reactor pressure vessels and steam components are precision-manufactured under controlled factory conditions rather than field-welded in outdoor weather, dramatically reducing construction defects and lead times.
-              </p>
-            </div>
-
-            <div>
-              <h5 style="font-size: 1.05rem; font-weight: 700; color: var(--forest-900); margin-bottom: 6px;">
-                Coal-to-Nuclear Infrastructure Repowering
-              </h5>
-              <p style="font-size: 0.86rem; color: var(--charcoal-600); line-height: 1.6;">
-                SMR modules (50–300 MWe) match the exact thermal and electric ratings of retired coal power plants, allowing developers to reuse existing high-voltage switchyards, water permits, and steam turbine infrastructure while preserving local union employment.
-              </p>
-            </div>
-
-            <div>
-              <h5 style="font-size: 1.05rem; font-weight: 700; color: var(--forest-900); margin-bottom: 6px;">
-                Infinite Passive Decay Heat Sinks
-              </h5>
-              <p style="font-size: 0.86rem; color: var(--charcoal-600); line-height: 1.6;">
-                With high surface-area-to-volume ratios, SMR cores can dissipate all post-shutdown radioactive decay heat through natural convective water currents or radiative cooling to the atmosphere without pumps, operator intervention, or offsite electricity.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   `;
+
+  if (typeof document !== "undefined") setTimeout(() => {
+    const btns = document.querySelectorAll('.filter-tech-btn');
+    const cards = document.querySelectorAll('.reactor-family-card');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => {
+          b.classList.remove('btn-primary');
+          b.classList.add('btn-secondary');
+        });
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-primary');
+
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-cat');
+          if (filter === 'all' || cat === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }, 0);
 
   return html;
 }
